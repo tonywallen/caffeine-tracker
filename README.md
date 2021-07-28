@@ -2,8 +2,9 @@
 
 ## Running this project
 
-- Copy caffeine-tracker-app .env.example to .env
-- Run `docker-compose --env-file caffeine-tracker-app/.env up --build`
+- Copy caffeine-tracker-app `cd caffeine-tracker-app && cp .env.example .env`
+- Execute composer install `cd caffeine-tracker-app && composer install`
+- Build and run project `docker-compose --env-file caffeine-tracker-app/.env up --build`
 - Execute migrations
     - `docker exec -it caffeine-tracker-app sh`
     - `cd ../ && php artisan migrate`
