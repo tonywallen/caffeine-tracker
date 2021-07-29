@@ -13,8 +13,15 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    $results = app('db')->select("SELECT 1");
+// API route group
+$router->group(['prefix' => 'api'], function () use ($router) {
+    // Matches "/api/signIn
+    $router->post('signIn', ['uses' => 'AuthController@signIn']);
+    // Matches "/api/signOut
+    $router->post('signOut', ['uses' => 'AuthController@signOut']);
+    // Matches "/api/refreshToken
+    $router->get('refreshToken', ['uses' => 'AuthController@refreshToken']);
 
-    return $results;
+    // Matches "/api/getProfile
+    $router->get('getProfile', 'UserController@getProfile');
 });
