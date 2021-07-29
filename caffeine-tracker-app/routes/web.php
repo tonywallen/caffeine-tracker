@@ -22,6 +22,19 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     // Matches "/api/refreshToken
     $router->get('refreshToken', ['uses' => 'AuthController@refreshToken']);
 
+    // Matches "/api/getUserById
+    $router->get('getUserById/{id}', 'UserController@getUserById');
     // Matches "/api/getProfile
     $router->get('getProfile', 'UserController@getProfile');
+    // Matches "/api/registerUser
+    $router->post('registerUser', 'UserController@registerUser');
+
+    // Matches "/api/getAllDrinks
+    $router->get('getAllDrinks', 'DrinkController@getAllDrinks');
+    // Matches "/api/getDrinkById
+    $router->get('getDrinkById/{id}', 'DrinkController@getDrinkById');
+    // Matches "/api/getDrinksConsumedByUser
+    $router->get('getDrinksConsumedByUserByDate', 'DrinkController@getDrinksConsumedByUserByDate');
+    // Matches "/api/setDrinkConsumedByUser
+    $router->post('setDrinkConsumedByUser', 'DrinkController@setDrinkConsumedByUser');
 });
